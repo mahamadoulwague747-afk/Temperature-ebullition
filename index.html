@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fiche molécule</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>Fiche molécule</h1>
+    <p class="intro">Tape le nom ou la formule d’une molécule pour afficher sa structure, son numéro CAS, sa formule brute et son point d’ébullition.</p>
+
+    <form id="search-form" autocomplete="off">
+      <label for="query" class="sr-only">Nom ou formule</label>
+      <input id="query" type="text" placeholder="Ex. : CO2, water, ethanol, benzene" required>
+      <button type="submit">Chercher</button>
+    </form>
+
+    <p class="examples">
+      Exemples :
+      <button type="button" class="chip" data-q="CO2">CO2</button>
+      <button type="button" class="chip" data-q="water">water</button>
+      <button type="button" class="chip" data-q="ethanol">ethanol</button>
+      <button type="button" class="chip" data-q="benzene">benzene</button>
+    </p>
+
+    <p id="status" role="status" aria-live="polite"></p>
+
+    <article id="result" hidden>
+      <figure class="plate">
+        <img id="structure" alt="">
+        <figcaption id="iupac"></figcaption>
+      </figure>
+      <dl>
+        <div class="bp">
+          <dt>Point d’ébullition</dt>
+          <dd id="bp"></dd>
+        </div>
+        <div><dt>Formule brute</dt><dd id="formula"></dd></div>
+        <div><dt>Numéro CAS</dt><dd id="cas"></dd></div>
+        <div><dt>Masse molaire</dt><dd id="mass"></dd></div>
+      </dl>
+    </article>
+
+    <footer>Données : PubChem (NIH).</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
